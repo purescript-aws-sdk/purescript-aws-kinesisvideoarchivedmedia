@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,7 +19,7 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 -- | <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
 newtype ClientLimitExceededException = ClientLimitExceededException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeClientLimitExceededException :: Newtype ClientLimitExceededException _
 derive instance repGenericClientLimitExceededException :: Generic ClientLimitExceededException _
@@ -30,12 +29,12 @@ instance encodeClientLimitExceededException :: Encode ClientLimitExceededExcepti
 
 -- | Constructs ClientLimitExceededException from required parameters
 newClientLimitExceededException :: ClientLimitExceededException
-newClientLimitExceededException  = ClientLimitExceededException { "Message": (NullOrUndefined Nothing) }
+newClientLimitExceededException  = ClientLimitExceededException { "Message": Nothing }
 
 -- | Constructs ClientLimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newClientLimitExceededException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ClientLimitExceededException
-newClientLimitExceededException'  customize = (ClientLimitExceededException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newClientLimitExceededException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ClientLimitExceededException
+newClientLimitExceededException'  customize = (ClientLimitExceededException <<< customize) { "Message": Nothing }
 
 
 
@@ -59,11 +58,11 @@ instance encodeErrorMessage :: Encode ErrorMessage where encode = genericEncode 
 
 -- | <p>Represents a segment of video or other time-delimited data.</p>
 newtype Fragment = Fragment 
-  { "FragmentNumber" :: NullOrUndefined (String)
-  , "FragmentSizeInBytes" :: NullOrUndefined (Number)
-  , "ProducerTimestamp" :: NullOrUndefined (Types.Timestamp)
-  , "ServerTimestamp" :: NullOrUndefined (Types.Timestamp)
-  , "FragmentLengthInMilliseconds" :: NullOrUndefined (Number)
+  { "FragmentNumber" :: Maybe (String)
+  , "FragmentSizeInBytes" :: Maybe (Number)
+  , "ProducerTimestamp" :: Maybe (Types.Timestamp)
+  , "ServerTimestamp" :: Maybe (Types.Timestamp)
+  , "FragmentLengthInMilliseconds" :: Maybe (Number)
   }
 derive instance newtypeFragment :: Newtype Fragment _
 derive instance repGenericFragment :: Generic Fragment _
@@ -73,12 +72,12 @@ instance encodeFragment :: Encode Fragment where encode = genericEncode options
 
 -- | Constructs Fragment from required parameters
 newFragment :: Fragment
-newFragment  = Fragment { "FragmentLengthInMilliseconds": (NullOrUndefined Nothing), "FragmentNumber": (NullOrUndefined Nothing), "FragmentSizeInBytes": (NullOrUndefined Nothing), "ProducerTimestamp": (NullOrUndefined Nothing), "ServerTimestamp": (NullOrUndefined Nothing) }
+newFragment  = Fragment { "FragmentLengthInMilliseconds": Nothing, "FragmentNumber": Nothing, "FragmentSizeInBytes": Nothing, "ProducerTimestamp": Nothing, "ServerTimestamp": Nothing }
 
 -- | Constructs Fragment's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFragment' :: ( { "FragmentNumber" :: NullOrUndefined (String) , "FragmentSizeInBytes" :: NullOrUndefined (Number) , "ProducerTimestamp" :: NullOrUndefined (Types.Timestamp) , "ServerTimestamp" :: NullOrUndefined (Types.Timestamp) , "FragmentLengthInMilliseconds" :: NullOrUndefined (Number) } -> {"FragmentNumber" :: NullOrUndefined (String) , "FragmentSizeInBytes" :: NullOrUndefined (Number) , "ProducerTimestamp" :: NullOrUndefined (Types.Timestamp) , "ServerTimestamp" :: NullOrUndefined (Types.Timestamp) , "FragmentLengthInMilliseconds" :: NullOrUndefined (Number) } ) -> Fragment
-newFragment'  customize = (Fragment <<< customize) { "FragmentLengthInMilliseconds": (NullOrUndefined Nothing), "FragmentNumber": (NullOrUndefined Nothing), "FragmentSizeInBytes": (NullOrUndefined Nothing), "ProducerTimestamp": (NullOrUndefined Nothing), "ServerTimestamp": (NullOrUndefined Nothing) }
+newFragment' :: ( { "FragmentNumber" :: Maybe (String) , "FragmentSizeInBytes" :: Maybe (Number) , "ProducerTimestamp" :: Maybe (Types.Timestamp) , "ServerTimestamp" :: Maybe (Types.Timestamp) , "FragmentLengthInMilliseconds" :: Maybe (Number) } -> {"FragmentNumber" :: Maybe (String) , "FragmentSizeInBytes" :: Maybe (Number) , "ProducerTimestamp" :: Maybe (Types.Timestamp) , "ServerTimestamp" :: Maybe (Types.Timestamp) , "FragmentLengthInMilliseconds" :: Maybe (Number) } ) -> Fragment
+newFragment'  customize = (Fragment <<< customize) { "FragmentLengthInMilliseconds": Nothing, "FragmentNumber": Nothing, "FragmentSizeInBytes": Nothing, "ProducerTimestamp": Nothing, "ServerTimestamp": Nothing }
 
 
 
@@ -162,8 +161,8 @@ newGetMediaForFragmentListInput' _Fragments _StreamName customize = (GetMediaFor
 
 
 newtype GetMediaForFragmentListOutput = GetMediaForFragmentListOutput 
-  { "ContentType" :: NullOrUndefined (ContentType)
-  , "Payload" :: NullOrUndefined (Payload)
+  { "ContentType" :: Maybe (ContentType)
+  , "Payload" :: Maybe (Payload)
   }
 derive instance newtypeGetMediaForFragmentListOutput :: Newtype GetMediaForFragmentListOutput _
 derive instance repGenericGetMediaForFragmentListOutput :: Generic GetMediaForFragmentListOutput _
@@ -173,18 +172,18 @@ instance encodeGetMediaForFragmentListOutput :: Encode GetMediaForFragmentListOu
 
 -- | Constructs GetMediaForFragmentListOutput from required parameters
 newGetMediaForFragmentListOutput :: GetMediaForFragmentListOutput
-newGetMediaForFragmentListOutput  = GetMediaForFragmentListOutput { "ContentType": (NullOrUndefined Nothing), "Payload": (NullOrUndefined Nothing) }
+newGetMediaForFragmentListOutput  = GetMediaForFragmentListOutput { "ContentType": Nothing, "Payload": Nothing }
 
 -- | Constructs GetMediaForFragmentListOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetMediaForFragmentListOutput' :: ( { "ContentType" :: NullOrUndefined (ContentType) , "Payload" :: NullOrUndefined (Payload) } -> {"ContentType" :: NullOrUndefined (ContentType) , "Payload" :: NullOrUndefined (Payload) } ) -> GetMediaForFragmentListOutput
-newGetMediaForFragmentListOutput'  customize = (GetMediaForFragmentListOutput <<< customize) { "ContentType": (NullOrUndefined Nothing), "Payload": (NullOrUndefined Nothing) }
+newGetMediaForFragmentListOutput' :: ( { "ContentType" :: Maybe (ContentType) , "Payload" :: Maybe (Payload) } -> {"ContentType" :: Maybe (ContentType) , "Payload" :: Maybe (Payload) } ) -> GetMediaForFragmentListOutput
+newGetMediaForFragmentListOutput'  customize = (GetMediaForFragmentListOutput <<< customize) { "ContentType": Nothing, "Payload": Nothing }
 
 
 
 -- | <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.</p>
 newtype InvalidArgumentException = InvalidArgumentException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidArgumentException :: Newtype InvalidArgumentException _
 derive instance repGenericInvalidArgumentException :: Generic InvalidArgumentException _
@@ -194,20 +193,20 @@ instance encodeInvalidArgumentException :: Encode InvalidArgumentException where
 
 -- | Constructs InvalidArgumentException from required parameters
 newInvalidArgumentException :: InvalidArgumentException
-newInvalidArgumentException  = InvalidArgumentException { "Message": (NullOrUndefined Nothing) }
+newInvalidArgumentException  = InvalidArgumentException { "Message": Nothing }
 
 -- | Constructs InvalidArgumentException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidArgumentException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidArgumentException
-newInvalidArgumentException'  customize = (InvalidArgumentException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidArgumentException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InvalidArgumentException
+newInvalidArgumentException'  customize = (InvalidArgumentException <<< customize) { "Message": Nothing }
 
 
 
 newtype ListFragmentsInput = ListFragmentsInput 
   { "StreamName" :: (StreamName)
-  , "MaxResults" :: NullOrUndefined (PageLimit)
-  , "NextToken" :: NullOrUndefined (String)
-  , "FragmentSelector" :: NullOrUndefined (FragmentSelector)
+  , "MaxResults" :: Maybe (PageLimit)
+  , "NextToken" :: Maybe (String)
+  , "FragmentSelector" :: Maybe (FragmentSelector)
   }
 derive instance newtypeListFragmentsInput :: Newtype ListFragmentsInput _
 derive instance repGenericListFragmentsInput :: Generic ListFragmentsInput _
@@ -217,18 +216,18 @@ instance encodeListFragmentsInput :: Encode ListFragmentsInput where encode = ge
 
 -- | Constructs ListFragmentsInput from required parameters
 newListFragmentsInput :: StreamName -> ListFragmentsInput
-newListFragmentsInput _StreamName = ListFragmentsInput { "StreamName": _StreamName, "FragmentSelector": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListFragmentsInput _StreamName = ListFragmentsInput { "StreamName": _StreamName, "FragmentSelector": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListFragmentsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListFragmentsInput' :: StreamName -> ( { "StreamName" :: (StreamName) , "MaxResults" :: NullOrUndefined (PageLimit) , "NextToken" :: NullOrUndefined (String) , "FragmentSelector" :: NullOrUndefined (FragmentSelector) } -> {"StreamName" :: (StreamName) , "MaxResults" :: NullOrUndefined (PageLimit) , "NextToken" :: NullOrUndefined (String) , "FragmentSelector" :: NullOrUndefined (FragmentSelector) } ) -> ListFragmentsInput
-newListFragmentsInput' _StreamName customize = (ListFragmentsInput <<< customize) { "StreamName": _StreamName, "FragmentSelector": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListFragmentsInput' :: StreamName -> ( { "StreamName" :: (StreamName) , "MaxResults" :: Maybe (PageLimit) , "NextToken" :: Maybe (String) , "FragmentSelector" :: Maybe (FragmentSelector) } -> {"StreamName" :: (StreamName) , "MaxResults" :: Maybe (PageLimit) , "NextToken" :: Maybe (String) , "FragmentSelector" :: Maybe (FragmentSelector) } ) -> ListFragmentsInput
+newListFragmentsInput' _StreamName customize = (ListFragmentsInput <<< customize) { "StreamName": _StreamName, "FragmentSelector": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListFragmentsOutput = ListFragmentsOutput 
-  { "Fragments" :: NullOrUndefined (FragmentList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Fragments" :: Maybe (FragmentList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeListFragmentsOutput :: Newtype ListFragmentsOutput _
 derive instance repGenericListFragmentsOutput :: Generic ListFragmentsOutput _
@@ -238,18 +237,18 @@ instance encodeListFragmentsOutput :: Encode ListFragmentsOutput where encode = 
 
 -- | Constructs ListFragmentsOutput from required parameters
 newListFragmentsOutput :: ListFragmentsOutput
-newListFragmentsOutput  = ListFragmentsOutput { "Fragments": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListFragmentsOutput  = ListFragmentsOutput { "Fragments": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListFragmentsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListFragmentsOutput' :: ( { "Fragments" :: NullOrUndefined (FragmentList) , "NextToken" :: NullOrUndefined (String) } -> {"Fragments" :: NullOrUndefined (FragmentList) , "NextToken" :: NullOrUndefined (String) } ) -> ListFragmentsOutput
-newListFragmentsOutput'  customize = (ListFragmentsOutput <<< customize) { "Fragments": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListFragmentsOutput' :: ( { "Fragments" :: Maybe (FragmentList) , "NextToken" :: Maybe (String) } -> {"Fragments" :: Maybe (FragmentList) , "NextToken" :: Maybe (String) } ) -> ListFragmentsOutput
+newListFragmentsOutput'  customize = (ListFragmentsOutput <<< customize) { "Fragments": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Status Code: 403, The caller is not authorized to perform an operation on the given stream, or the token has expired.</p>
 newtype NotAuthorizedException = NotAuthorizedException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNotAuthorizedException :: Newtype NotAuthorizedException _
 derive instance repGenericNotAuthorizedException :: Generic NotAuthorizedException _
@@ -259,12 +258,12 @@ instance encodeNotAuthorizedException :: Encode NotAuthorizedException where enc
 
 -- | Constructs NotAuthorizedException from required parameters
 newNotAuthorizedException :: NotAuthorizedException
-newNotAuthorizedException  = NotAuthorizedException { "Message": (NullOrUndefined Nothing) }
+newNotAuthorizedException  = NotAuthorizedException { "Message": Nothing }
 
 -- | Constructs NotAuthorizedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotAuthorizedException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> NotAuthorizedException
-newNotAuthorizedException'  customize = (NotAuthorizedException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newNotAuthorizedException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> NotAuthorizedException
+newNotAuthorizedException'  customize = (NotAuthorizedException <<< customize) { "Message": Nothing }
 
 
 
@@ -288,7 +287,7 @@ instance encodePayload :: Encode Payload where encode = genericEncode options
 
 -- | <p>Kinesis Video Streams can't find the stream that you specified.</p>
 newtype ResourceNotFoundException = ResourceNotFoundException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeResourceNotFoundException :: Newtype ResourceNotFoundException _
 derive instance repGenericResourceNotFoundException :: Generic ResourceNotFoundException _
@@ -298,12 +297,12 @@ instance encodeResourceNotFoundException :: Encode ResourceNotFoundException whe
 
 -- | Constructs ResourceNotFoundException from required parameters
 newResourceNotFoundException :: ResourceNotFoundException
-newResourceNotFoundException  = ResourceNotFoundException { "Message": (NullOrUndefined Nothing) }
+newResourceNotFoundException  = ResourceNotFoundException { "Message": Nothing }
 
 -- | Constructs ResourceNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceNotFoundException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ResourceNotFoundException
-newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newResourceNotFoundException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ResourceNotFoundException
+newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "Message": Nothing }
 
 
 

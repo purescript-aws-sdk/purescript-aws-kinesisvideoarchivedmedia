@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype ClientLimitExceededException
-  = ClientLimitExceededException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ClientLimitExceededException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
@@ -35,7 +35,7 @@ Constructs ClientLimitExceededException from required parameters
 #### `newClientLimitExceededException'`
 
 ``` purescript
-newClientLimitExceededException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ClientLimitExceededException
+newClientLimitExceededException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ClientLimitExceededException
 ```
 
 Constructs ClientLimitExceededException's fields from required parameters
@@ -76,7 +76,7 @@ Encode ErrorMessage
 
 ``` purescript
 newtype Fragment
-  = Fragment { "FragmentNumber" :: NullOrUndefined (String), "FragmentSizeInBytes" :: NullOrUndefined (Number), "ProducerTimestamp" :: NullOrUndefined (Timestamp), "ServerTimestamp" :: NullOrUndefined (Timestamp), "FragmentLengthInMilliseconds" :: NullOrUndefined (Number) }
+  = Fragment { "FragmentNumber" :: Maybe (String), "FragmentSizeInBytes" :: Maybe (Number), "ProducerTimestamp" :: Maybe (Timestamp), "ServerTimestamp" :: Maybe (Timestamp), "FragmentLengthInMilliseconds" :: Maybe (Number) }
 ```
 
 <p>Represents a segment of video or other time-delimited data.</p>
@@ -101,7 +101,7 @@ Constructs Fragment from required parameters
 #### `newFragment'`
 
 ``` purescript
-newFragment' :: ({ "FragmentNumber" :: NullOrUndefined (String), "FragmentSizeInBytes" :: NullOrUndefined (Number), "ProducerTimestamp" :: NullOrUndefined (Timestamp), "ServerTimestamp" :: NullOrUndefined (Timestamp), "FragmentLengthInMilliseconds" :: NullOrUndefined (Number) } -> { "FragmentNumber" :: NullOrUndefined (String), "FragmentSizeInBytes" :: NullOrUndefined (Number), "ProducerTimestamp" :: NullOrUndefined (Timestamp), "ServerTimestamp" :: NullOrUndefined (Timestamp), "FragmentLengthInMilliseconds" :: NullOrUndefined (Number) }) -> Fragment
+newFragment' :: ({ "FragmentNumber" :: Maybe (String), "FragmentSizeInBytes" :: Maybe (Number), "ProducerTimestamp" :: Maybe (Timestamp), "ServerTimestamp" :: Maybe (Timestamp), "FragmentLengthInMilliseconds" :: Maybe (Number) } -> { "FragmentNumber" :: Maybe (String), "FragmentSizeInBytes" :: Maybe (Number), "ProducerTimestamp" :: Maybe (Timestamp), "ServerTimestamp" :: Maybe (Timestamp), "FragmentLengthInMilliseconds" :: Maybe (Number) }) -> Fragment
 ```
 
 Constructs Fragment's fields from required parameters
@@ -240,7 +240,7 @@ Constructs GetMediaForFragmentListInput's fields from required parameters
 
 ``` purescript
 newtype GetMediaForFragmentListOutput
-  = GetMediaForFragmentListOutput { "ContentType" :: NullOrUndefined (ContentType), "Payload" :: NullOrUndefined (Payload) }
+  = GetMediaForFragmentListOutput { "ContentType" :: Maybe (ContentType), "Payload" :: Maybe (Payload) }
 ```
 
 ##### Instances
@@ -263,7 +263,7 @@ Constructs GetMediaForFragmentListOutput from required parameters
 #### `newGetMediaForFragmentListOutput'`
 
 ``` purescript
-newGetMediaForFragmentListOutput' :: ({ "ContentType" :: NullOrUndefined (ContentType), "Payload" :: NullOrUndefined (Payload) } -> { "ContentType" :: NullOrUndefined (ContentType), "Payload" :: NullOrUndefined (Payload) }) -> GetMediaForFragmentListOutput
+newGetMediaForFragmentListOutput' :: ({ "ContentType" :: Maybe (ContentType), "Payload" :: Maybe (Payload) } -> { "ContentType" :: Maybe (ContentType), "Payload" :: Maybe (Payload) }) -> GetMediaForFragmentListOutput
 ```
 
 Constructs GetMediaForFragmentListOutput's fields from required parameters
@@ -272,7 +272,7 @@ Constructs GetMediaForFragmentListOutput's fields from required parameters
 
 ``` purescript
 newtype InvalidArgumentException
-  = InvalidArgumentException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InvalidArgumentException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.</p>
@@ -297,7 +297,7 @@ Constructs InvalidArgumentException from required parameters
 #### `newInvalidArgumentException'`
 
 ``` purescript
-newInvalidArgumentException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InvalidArgumentException
+newInvalidArgumentException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InvalidArgumentException
 ```
 
 Constructs InvalidArgumentException's fields from required parameters
@@ -306,7 +306,7 @@ Constructs InvalidArgumentException's fields from required parameters
 
 ``` purescript
 newtype ListFragmentsInput
-  = ListFragmentsInput { "StreamName" :: StreamName, "MaxResults" :: NullOrUndefined (PageLimit), "NextToken" :: NullOrUndefined (String), "FragmentSelector" :: NullOrUndefined (FragmentSelector) }
+  = ListFragmentsInput { "StreamName" :: StreamName, "MaxResults" :: Maybe (PageLimit), "NextToken" :: Maybe (String), "FragmentSelector" :: Maybe (FragmentSelector) }
 ```
 
 ##### Instances
@@ -329,7 +329,7 @@ Constructs ListFragmentsInput from required parameters
 #### `newListFragmentsInput'`
 
 ``` purescript
-newListFragmentsInput' :: StreamName -> ({ "StreamName" :: StreamName, "MaxResults" :: NullOrUndefined (PageLimit), "NextToken" :: NullOrUndefined (String), "FragmentSelector" :: NullOrUndefined (FragmentSelector) } -> { "StreamName" :: StreamName, "MaxResults" :: NullOrUndefined (PageLimit), "NextToken" :: NullOrUndefined (String), "FragmentSelector" :: NullOrUndefined (FragmentSelector) }) -> ListFragmentsInput
+newListFragmentsInput' :: StreamName -> ({ "StreamName" :: StreamName, "MaxResults" :: Maybe (PageLimit), "NextToken" :: Maybe (String), "FragmentSelector" :: Maybe (FragmentSelector) } -> { "StreamName" :: StreamName, "MaxResults" :: Maybe (PageLimit), "NextToken" :: Maybe (String), "FragmentSelector" :: Maybe (FragmentSelector) }) -> ListFragmentsInput
 ```
 
 Constructs ListFragmentsInput's fields from required parameters
@@ -338,7 +338,7 @@ Constructs ListFragmentsInput's fields from required parameters
 
 ``` purescript
 newtype ListFragmentsOutput
-  = ListFragmentsOutput { "Fragments" :: NullOrUndefined (FragmentList), "NextToken" :: NullOrUndefined (String) }
+  = ListFragmentsOutput { "Fragments" :: Maybe (FragmentList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -361,7 +361,7 @@ Constructs ListFragmentsOutput from required parameters
 #### `newListFragmentsOutput'`
 
 ``` purescript
-newListFragmentsOutput' :: ({ "Fragments" :: NullOrUndefined (FragmentList), "NextToken" :: NullOrUndefined (String) } -> { "Fragments" :: NullOrUndefined (FragmentList), "NextToken" :: NullOrUndefined (String) }) -> ListFragmentsOutput
+newListFragmentsOutput' :: ({ "Fragments" :: Maybe (FragmentList), "NextToken" :: Maybe (String) } -> { "Fragments" :: Maybe (FragmentList), "NextToken" :: Maybe (String) }) -> ListFragmentsOutput
 ```
 
 Constructs ListFragmentsOutput's fields from required parameters
@@ -370,7 +370,7 @@ Constructs ListFragmentsOutput's fields from required parameters
 
 ``` purescript
 newtype NotAuthorizedException
-  = NotAuthorizedException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = NotAuthorizedException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Status Code: 403, The caller is not authorized to perform an operation on the given stream, or the token has expired.</p>
@@ -395,7 +395,7 @@ Constructs NotAuthorizedException from required parameters
 #### `newNotAuthorizedException'`
 
 ``` purescript
-newNotAuthorizedException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> NotAuthorizedException
+newNotAuthorizedException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> NotAuthorizedException
 ```
 
 Constructs NotAuthorizedException's fields from required parameters
@@ -436,7 +436,7 @@ Encode Payload
 
 ``` purescript
 newtype ResourceNotFoundException
-  = ResourceNotFoundException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ResourceNotFoundException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Kinesis Video Streams can't find the stream that you specified.</p>
@@ -461,7 +461,7 @@ Constructs ResourceNotFoundException from required parameters
 #### `newResourceNotFoundException'`
 
 ``` purescript
-newResourceNotFoundException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ResourceNotFoundException
+newResourceNotFoundException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ResourceNotFoundException
 ```
 
 Constructs ResourceNotFoundException's fields from required parameters
